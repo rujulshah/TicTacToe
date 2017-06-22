@@ -9,7 +9,7 @@ function setCell(num){
 		board[num] = playerType;
 		diplayCell(num);
 		var win = checkWin();
-		alert(win);
+		//alert(win);
 		if (win){
 			var player = document.getElementById("playerText");
   			player.innerHTML="Player: " + playerType + " WINS!!";
@@ -39,8 +39,8 @@ function checkWin(){
 	  var b1 = winPlay[index][0];
 	  var b2 = winPlay[index][1];
 	  var b3 = winPlay[index][2];
-	  if (board[b1] == playerType && board[b1] == playerType && board[b3] == playerType){
-	  	alert(board[b1] +","+board[b2]+","+board[b3]);
+	  if (board[b1] == playerType && board[b2] == playerType && board[b3] == playerType){
+	  	///alert(board[b1] +","+board[b2]+","+board[b3]);
 	  	isWin = true;
 	  }
 	});
@@ -61,8 +61,10 @@ function playerText(){
 function start(){
 	board = [" "," "," "," "," "," "," "," "," "];
   	playerType ="X";
-  	gameOver = false;
   	playerText();
+  	for (b in board){
+  		document.getElementById("cell"+b).innerHTML = "";
+  	}
 }
 
 if(document.readyState === 'loading') {
